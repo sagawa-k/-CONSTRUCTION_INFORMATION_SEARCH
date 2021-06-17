@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>マイナビ Scraping</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="h3 mb-4">国土交通省<br>建設業者・宅建業者等企業情報検索システム</h1>
+      <form class="mb-5">
+        <button id="construction_search" type="button" class="btn btn-primary">建設業者検索開始</button>
+        <button id="building_search" type="button" class="btn btn-success">宅地建物取引業者検索開始</button>
+      </form>
+    </div>
+  <hr>
+    <div class="container">
+      <div class="form-group">
+        <label for="textarea1">取得状況:</label>
+        <textarea id="construction_search_result" class="form-control" rows="8"></textarea>
+      </div>
+    </div>
+    <script type="text/javascript" src="./eel.js"></script>
+    <script>
+          construction_search.addEventListener('click', () => {
+            eel.construction_search()
+          })
+
+          eel.expose(view_log_js)
+          function view_log_js(text){
+            construction_search_result.value += text + "\r"
+          }
+
+          building_search.addEventListener('click', () => {
+            eel.building_search()
+          })
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
